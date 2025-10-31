@@ -109,7 +109,7 @@ const BusinessHero = () => {
     };
 
     return (
-        <section className="relative overflow-hidden pt-28 ">
+        <section className="relative overflow-hidden h-[600px] md:h-[700px] lg:h-[800px]">
             {/* GIF Background with fade transition */}
             {slides.map((slide, index) => (
                 <div
@@ -133,11 +133,11 @@ const BusinessHero = () => {
             <div className="absolute inset-0 bg-black/50 z-10"></div>
 
             {/* Toggle Buttons - Above everything */}
-            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
                 <ToggleButtons activeTab={activeTab} onToggle={handleToggle} />
             </div>
 
-            <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-20 py-4 md:py-8">
+            <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-20 py-4 md:py-8 mt-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
                     {/* Left Content */}
                     <div className="text-white space-y-6">
