@@ -72,9 +72,7 @@ const DeveloperResources = () => {
                                 key={index}
                                 className="bg-white  rounded-2xl p-2 transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-t-2 hover:border-[#018000] hover:-translate-y-2 hover:scale-[1.02] cursor-pointer group"
                             >
-                                {/* Top Row: Icon and Title */}
                                 <div className="flex items-center space-x-3">
-                                    {/* Icon */}
                                     <div className="flex-shrink-0">
                                         <div className="w-12 h-12 bg-[#018000] rounded-full flex items-center justify-center p-2.5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                                             <Image

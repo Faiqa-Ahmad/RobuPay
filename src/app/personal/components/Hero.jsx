@@ -35,7 +35,7 @@ const Hero = () => {
                         src={icon.image}
                         alt={`Cryptocurrency ${index + 1}`}
                         fill
-                        className="object-contain"
+                        className="object-contain "
                     />
                 </div>
             ))}
