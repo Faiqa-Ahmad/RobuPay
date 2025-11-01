@@ -109,7 +109,7 @@ const BusinessHero = () => {
     };
 
     return (
-        <section className="relative overflow-hidden h-[600px] md:h-[700px] lg:h-[800px]">
+        <section className="relative overflow-hidden min-h-[700px] sm:min-h-[750px] md:min-h-[750px] lg:min-h-[800px]">
             {/* GIF Background with fade transition */}
             {slides.map((slide, index) => (
                 <div
@@ -130,66 +130,98 @@ const BusinessHero = () => {
             ))}
 
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/50 z-10"></div>
+            <div className="absolute inset-0 bg-black/60 z-10"></div>
 
             {/* Toggle Buttons - Above everything */}
-            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="absolute top-4 sm:top-6 md:top-8 left-1/2 transform -translate-x-1/2 z-30">
                 <ToggleButtons activeTab={activeTab} onToggle={handleToggle} />
             </div>
 
-            <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-20 py-4 md:py-8 mt-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
-                    {/* Left Content */}
-                    <div className="text-white space-y-6">
-                        <h1 className="text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight font-baloo transition-all duration-500">
+            <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-20 py-6 md:py-8">
+                {/* Mobile/Tablet Layout: Vertical Stack */}
+                <div className="lg:hidden flex flex-col justify-start min-h-[600px] sm:min-h-[650px] pt-24 sm:pt-20">
+                    {/* Text Content - Above Image on Mobile */}
+                    <div className="text-white space-y-3 sm:space-y-4 text-center px-2 mb-6 sm:mb-8">
+                        <h1 className="text-[32px] sm:text-[40px] md:text-[48px] font-bold leading-tight font-baloo transition-all duration-500">
                             {slides[currentSlide].title}
                         </h1>
-                        <p className="text-[16px] md:text-[18px] leading-relaxed text-gray-200">
+                        <p className="text-[14px] sm:text-[15px] leading-relaxed text-gray-200 max-w-2xl mx-auto">
                             {slides[currentSlide].description}
                         </p>
                     </div>
 
-                    {/* Right Images - Chain Animation showing all images */}
-                    <div className="relative flex justify-end h-[400px] md:h-[480px] pt-10">
-                        <div className="relative w-full max-w-[800px] flex items-end">
-                            {getChainImages().map((imageData, position) => (
-                                <div
-                                    key={`${focusedImageIndex}-${position}`}
-                                    className={`absolute  py-4 rounded-xl overflow-hidden shadow-2xl transition-all duration-700 ease-in-out ${
-                                        position === 0
-                                            ? 'w-[240px] h-[320px] md:w-[280px] md:h-[350px] z-30'
-                                            : position === 1
-                                            ? 'w-[220px] h-[300px] md:w-[260px] md:h-[270px] z-20'
-                                            : 'w-[200px] h-[280px] md:w-[240px] md:h-[270px] z-10'
-                                    }`}
-                                    style={{
-                                        left: position === 0 ? '0' : position === 1 ? '180px' : '340px',
-                                        bottom: 32,
-                                        transform: `translateX(${position === 0 ? '0' : position === 1 ? '30px' : '30px'})`,
-                                    }}
-                                >
-                                    <Image
-                                        src={imageData.image}
-                                        alt={`${imageData.title}`}
-                                        fill
-                                        className="object-cover"
-                                        priority={position === 0}
-                                    />
-                                </div>
-                            ))}
+                    {/* Image - Below Text on Mobile */}
+                    <div className="flex justify-center items-start flex-grow">
+                        <div className="relative w-[220px] h-[300px] sm:w-[280px] sm:h-[380px] rounded-xl overflow-hidden shadow-2xl">
+                            <Image
+                                src={allImages[focusedImageIndex].image}
+                                alt={allImages[focusedImageIndex].title}
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Desktop Layout: Side by Side */}
+                <div className="hidden lg:grid grid-cols-2 gap-12 items-center mt-16 min-h-[600px]">
+                    {/* Left Content */}
+                    <div className="text-white space-y-6 text-left">
+                        <h1 className="text-[52px] xl:text-[64px] font-bold leading-tight font-baloo transition-all duration-500">
+                            {slides[currentSlide].title}
+                        </h1>
+                        <p className="text-[16px] xl:text-[18px] leading-relaxed text-gray-200">
+                            {slides[currentSlide].description}
+                        </p>
+                    </div>
+
+                    {/* Right Images - Chain Animation (Desktop Only) */}
+                    <div className="relative flex justify-end h-[480px] items-center">
+                        <div className="relative w-full max-w-[800px] flex items-end h-full">
+                            {getChainImages().map((imageData, position) => {
+                                const sizes = {
+                                    0: 'w-[280px] h-[350px]',
+                                    1: 'w-[260px] h-[270px]',
+                                    2: 'w-[240px] h-[270px]'
+                                };
+                                
+                                const leftPositions = {
+                                    0: 'left-0',
+                                    1: 'left-[200px]',
+                                    2: 'left-[380px]'
+                                };
+                                
+                                return (
+                                    <div
+                                        key={`${focusedImageIndex}-${position}`}
+                                        className={`absolute py-4 rounded-xl overflow-hidden shadow-2xl transition-all duration-700 ease-in-out bottom-8 ${sizes[position]} ${leftPositions[position]} ${
+                                            position === 0 ? 'z-30' : position === 1 ? 'z-20' : 'z-10'
+                                        }`}
+                                    >
+                                        <Image
+                                            src={imageData.image}
+                                            alt={`${imageData.title}`}
+                                            fill
+                                            className="object-cover"
+                                            priority={position === 0}
+                                        />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
 
                 {/* Navigation Dots */}
-                <div className="absolute py-4 bottom-2  left-1/2 transform -translate-x-1/2 flex space-x-3">
+                <div className="absolute py-3 md:py-4 bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-30">
                     {allImages.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => handleDotClick(index)}
-                            className={`w-3 h-3  rounded-full transition-all duration-300 ${
+                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                                 focusedImageIndex === index
-                                    ? 'bg-[#018000] w-8'
+                                    ? 'bg-[#018000] w-6 sm:w-8'
                                     : 'bg-white/50 hover:bg-white/80'
                             }`}
                             aria-label={`Go to image ${index + 1}`}

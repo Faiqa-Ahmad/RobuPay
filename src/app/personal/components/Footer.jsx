@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
@@ -39,21 +41,21 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-black text-white py-8 px-4 md:px-20 rounded-t-[50px] md:rounded-t-[80px] font-baloo">
+        <footer className="bg-black text-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-20 rounded-t-[40px] sm:rounded-t-[60px] md:rounded-t-[80px] font-baloo">
             <div className="max-w-7xl mx-auto">
                 {/* Top Section - Links */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+                <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 mb-10 sm:mb-12">
                     {footerSections.map((section, index) => (
-                        <div key={index}>
-                            <h3 className="text-[#018000] text-[16px] font-semibold mb-4">
+                        <div key={index} className="transition-transform duration-300 hover:translate-y-[-4px]">
+                            <h3 className="text-[#018000] text-[15px] sm:text-[16px] font-semibold mb-3 sm:mb-4">
                                 {section.title}
                             </h3>
-                            <ul className="space-y-3">
+                            <ul className="space-y-2 sm:space-y-3">
                                 {section.links.map((link, linkIndex) => (
                                     <li key={linkIndex}>
                                         <a
                                             href="#"
-                                            className="text-white text-[14px] hover:text-[#018000] transition-colors duration-200"
+                                            className="text-white text-[13px] sm:text-[14px] hover:text-[#018000] transition-colors duration-200"
                                         >
                                             {link}
                                         </a>
@@ -65,11 +67,11 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div className="flex flex-col lg:flex-row justify-between items-center gap-6 sm:gap-8">
                     {/* Logo and Description */}
-                    <div className="flex flex-col items-center lg:items-start max-w-[250px]">
-                        <div className="flex  mb-4">
-                            <div className="relative w-[180px] h-[53px]">
+                    <div className="flex flex-col items-center lg:items-start max-w-[280px] sm:max-w-[300px]">
+                        <div className="flex mb-4 transition-transform duration-300 hover:scale-105">
+                            <div className="relative w-[160px] h-[48px] sm:w-[180px] sm:h-[53px]">
                                 <Image
                                     src="/robupay-logo.png"
                                     alt="RobuPay Logo"
@@ -78,19 +80,19 @@ const Footer = () => {
                                 />
                             </div>
                         </div>
-                        <p className="max-w-2xl mx-auto text-white text-[14px]  text-center lg:text-left">
+                        <p className="max-w-2xl mx-auto text-white text-[13px] sm:text-[14px] text-center lg:text-left leading-relaxed">
                             Making cryptocurrency payments simple, safe, and useful for everyday business needs.
                         </p>
                     </div>
 
                     {/* Social Media Icons */}
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-3 sm:space-x-4">
                         {socialLinks.map((social, index) => (
                             <a
                                 key={index}
                                 href={social.href}
                                 aria-label={social.label}
-                                className="w-10 h-10 bg-[#018000] rounded-full flex items-center justify-center text-white hover:bg-[#016000] transition-all duration-300"
+                                className="w-10 h-10 sm:w-12 sm:h-12 bg-[#018000] rounded-full flex items-center justify-center text-white text-lg sm:text-xl hover:bg-[#016500] transition-all duration-300 hover:scale-110 hover:rotate-12 shadow-md hover:shadow-lg"
                             >
                                 {social.icon}
                             </a>
@@ -99,8 +101,8 @@ const Footer = () => {
                 </div>
 
                 {/* Copyright */}
-                <div className="mt-4 pt-8 border-t border-gray-500 text-center">
-                    <p className="text-white text-[14px]">
+                <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-700 text-center">
+                    <p className="text-white text-[13px] sm:text-[14px]">
                         © 2025 RobuPay. All rights reserved.
                     </p>
                 </div>
@@ -110,4 +112,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

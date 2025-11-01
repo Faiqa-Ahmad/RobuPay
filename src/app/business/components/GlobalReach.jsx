@@ -19,26 +19,26 @@ const GlobalReach = () => {
     ];
 
     return (
-        <section className="relative  bg-[#0F132D] py-10 px-4 md:px-10">
+        <section className="relative bg-[#0F132D] py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-10">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
-                <div className="text-center mb-8">
-                    <h3 className="text-[24px] md:text-[32px] font-bold text-[#018000] mb-4 font-baloo">
+                <div className="text-center mb-6 sm:mb-8 px-2">
+                    <h3 className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#018000] mb-3 sm:mb-4 font-baloo">
                         Global Reach
                     </h3>
-                    <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-bold text-white mb-6 font-baloo leading-tight">
+                    <h2 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-bold text-white mb-4 sm:mb-5 md:mb-6 font-baloo leading-tight">
                         From Online to Offline
                     </h2>
-                    <p className="text-[16px] md:text-[18px] text-white leading-relaxed">
+                    <p className="text-[14px] sm:text-[15px] md:text-[18px] text-white leading-relaxed max-w-3xl mx-auto">
                         Whether you run an e-commerce store or a physical shop, RobuPay adapts to your business model.
-                        <br />
-                        Use payment links for online sales and crypto terminals for in-store purchases.
+                        <br className="hidden sm:block" />
+                        <span className="block sm:inline mt-1 sm:mt-0"> Use payment links for online sales and crypto terminals for in-store purchases.</span>
                     </p>
                 </div>
 
                 {/* Animated Globe Section */}
-                <div className="flex justify-center  ">
-                    <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
+                <div className="flex justify-center py-4 sm:py-6">
+                    <div className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px]">
                         {/* Outer glow rings */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-500/5 to-teal-700/5 animate-pulse-slow"></div>
                         <div className="absolute inset-4 rounded-full bg-gradient-to-br from-teal-500/10 to-teal-700/10 animate-pulse-slower"></div>
@@ -111,13 +111,13 @@ const GlobalReach = () => {
                 </div>
 
                 {/* Stats Section */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                <div className="grid grid-cols-3 gap-6 sm:gap-8 md:gap-12 max-w-5xl mx-auto mt-8 sm:mt-10 md:mt-12">
                     {stats.map((stat, index) => (
                         <div key={index} className="text-center">
-                            <h3 className="text-[18px] md:text-[28px] font-bold text-[#018000] font-baloo">
+                            <h3 className="text-[32px] sm:text-[24px] md:text-[28px] lg:text-[48px] font-bold text-[#018000] font-baloo mb-1 sm:mb-2">
                                 {stat.number}
                             </h3>
-                            <p className="text-[20px] md:text-[24px] text-white font-medium font-baloo">
+                            <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] text-white font-medium font-baloo">
                                 {stat.label}
                             </p>
                         </div>

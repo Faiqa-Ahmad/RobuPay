@@ -18,11 +18,11 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative bg-[#F0F7EB] py-10 px-4 overflow-hidden">
+        <section className="relative bg-[#F0F7EB] py-6 sm:py-8 md:py-10 lg:py-12 px-4 overflow-hidden">
             {cryptoIcons.map((icon, index) => (
                 <div
                     key={index}
-                    className="absolute w-12 h-12 md:w-16 md:h-16 animate-float-up opacity-60 z-50"
+                    className="absolute w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 animate-float-up z-50 opacity-40 sm:opacity-50 md:opacity-60"
                     style={{
                         left: icon.left || 'auto',
                         right: icon.right || 'auto',
@@ -35,26 +35,27 @@ const Hero = () => {
                         src={icon.image}
                         alt={`Cryptocurrency ${index + 1}`}
                         fill
-                        className="object-contain "
+                        className="object-contain"
                     />
                 </div>
             ))}
 
-            <div className="">
+            <div className="max-w-7xl mx-auto">
                 {/* Hero Text Content */}
                 <div className="text-center relative z-0">
-                    <h1 className="text-[48px] md:text-[56px] lg:text-[64px] font-bold text-black leading-tight mb-6 font-baloo">
+                    <h1 className="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[60px] xl:text-[64px] font-bold text-black leading-tight mb-4 sm:mb-5 md:mb-6 font-baloo px-2">
                         Your Trusted Crypto Gateway to Global
-                        <br />
+                        <br className="hidden sm:block" />
+                        <span className="sm:hidden"> </span>
                         Transactions
                     </h1>
-                    <p className="text-[18px] md:text-[20px] text-gray-700 max-w-3xl mx-auto font-baloo">
+                    <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-gray-700 max-w-3xl mx-auto font-baloo px-2 leading-relaxed">
                         An innovative payment gateway solution designed to facilitate digital transactions safely, quickly and efficiently.
                     </p>
                 </div>
-                <div className="relative w-full py-4 z-0">
+                <div className="relative w-full py-3 sm:py-4 md:py-5 z-0">
                     <div className="relative z-0">
-                        <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[400px]">
+                        <div className="relative w-full h-[280px] sm:h-[350px] md:h-[420px] lg:h-[400px]">
                             <Image
                                 src="/hero.png"
                                 alt="RobuPay Dashboard Preview"
@@ -75,10 +76,10 @@ const Hero = () => {
                         opacity: 0;
                     }
                     10% {
-                        opacity: 0.6;
+                        opacity: 0.4;
                     }
                     90% {
-                        opacity: 0.6;
+                        opacity: 0.4;
                     }
                     100% {
                         transform: translateY(-100vh) rotate(360deg);
@@ -88,6 +89,37 @@ const Hero = () => {
 
                 .animate-float-up {
                     animation: float-up 30s linear infinite;
+                }
+
+                /* Responsive animation adjustments */
+                @media (max-width: 640px) {
+                    .animate-float-up {
+                        animation-duration: 35s; /* Slower on mobile for less distraction */
+                    }
+                    @keyframes float-up {
+                        10%, 90% {
+                            opacity: 0.3;
+                        }
+                    }
+                }
+
+                @media (min-width: 641px) and (max-width: 768px) {
+                    .animate-float-up {
+                        animation-duration: 32s;
+                    }
+                    @keyframes float-up {
+                        10%, 90% {
+                            opacity: 0.4;
+                        }
+                    }
+                }
+
+                @media (min-width: 769px) {
+                    @keyframes float-up {
+                        10%, 90% {
+                            opacity: 0.6;
+                        }
+                    }
                 }
             `}</style>
         </section>

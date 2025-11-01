@@ -63,7 +63,7 @@ const SocialProof = () => {
     };
 
     return (
-        <section className="relative py-8 px-4 overflow-hidden">
+        <section className="relative py-4 sm:py-6 md:py-8 px-4 overflow-hidden">
             {/* Background with subtle gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#F0F7EB] to-[#E8F4E0]"></div>
             
@@ -73,14 +73,14 @@ const SocialProof = () => {
             
             <div className="relative max-w-6xl mx-auto">
                 {/* Success Text */}
-                <div className="text-center py-4">
-                    <p className="text-[16px] md:text-[18px] lg:text-[20px] font-medium text-black font-baloo">
+                <div className="text-center py-2 sm:py-3 md:py-4">
+                    <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-medium text-black font-baloo">
                         More than +88,500 successful RobuPay users worldwide
                     </p>
                 </div>
 
                 {/* Partner Logos - Animated Chain */}
-                <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 py-6">
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-14 py-3 sm:py-4 md:py-5 lg:py-6">
                     {partners.map((partner, index) => {
                         const style = getLogoStyle(index);
                         return (

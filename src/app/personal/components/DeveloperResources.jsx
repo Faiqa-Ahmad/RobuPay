@@ -112,7 +112,7 @@ const DeveloperResources = () => {
                 </div>
 
                 {/* Bottom Features Bar */}
-                <div className="bg-[#018000] rounded-lg py-10 px-6">
+                <div className="bg-[#018000] rounded-lg lg:py-10 py-6 px-6">
                     <div className="flex flex-wrap justify-center items-center gap-x-28 gap-y-4 text-white">
                         {features.map((feature, index) => (
                             <div key={index} className="flex items-center gap-2">

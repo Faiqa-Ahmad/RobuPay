@@ -31,7 +31,7 @@ const OurJourney = () => {
     ];
 
     return (
-        <section className="relative py-4 px-10  bg-[#F0F7EB] font-baloo">
+        <section className="relative py-4 lg:px-10 px-2  bg-[#F0F7EB] font-baloo">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -44,11 +44,11 @@ const OurJourney = () => {
                 </div>
 
                 {/* Timeline Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-12">
                     {journeySteps.map((step, index) => (
                         <div
                             key={index}
-                            className="relative bg-white rounded-3xl p-6 border border-[#018000] transition-all duration-500 ease-in-out hover:shadow-2xl hover:border-transparent hover:border-t-4 hover:border-t-[#018000] hover:-translate-y-3 hover:scale-[1.05] overflow-hidden cursor-pointer group"
+                            className="relative bg-white rounded-3xl p-2 lg:p-6 border border-[#018000] transition-all duration-500 ease-in-out hover:shadow-2xl hover:border-transparent hover:border-t-4 hover:border-t-[#018000] hover:-translate-y-3 hover:scale-[1.05] overflow-hidden cursor-pointer group"
                         >
                             {/* Year Badge - Bounces from bottom on hover */}
                             <div className="mb-4 transition-all duration-700 ease-out group-hover:animate-bounce-from-bottom">
