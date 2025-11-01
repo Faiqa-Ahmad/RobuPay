@@ -18,11 +18,11 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative bg-[#F0F7EB] py-6 sm:py-8 md:py-10 lg:py-12 px-4 overflow-hidden">
+        <section className="relative bg-[#F0F7EB] py-6 sm:py-8 md:py-10 lg:py-4 px-4 overflow-hidden">
             {cryptoIcons.map((icon, index) => (
                 <div
                     key={index}
-                    className="absolute w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 animate-float-up z-50 opacity-40 sm:opacity-50 md:opacity-60"
+                    className="absolute w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 z-50 crypto-float-animation"
                     style={{
                         left: icon.left || 'auto',
                         right: icon.right || 'auto',
@@ -55,7 +55,7 @@ const Hero = () => {
                 </div>
                 <div className="relative w-full py-3 sm:py-4 md:py-5 z-0">
                     <div className="relative z-0">
-                        <div className="relative w-full h-[280px] sm:h-[350px] md:h-[420px] lg:h-[400px]">
+                        <div className="relative w-full h-[140px] sm:h-[350px] md:h-[420px] lg:h-[400px]">
                             <Image
                                 src="/hero.png"
                                 alt="RobuPay Dashboard Preview"
@@ -70,16 +70,17 @@ const Hero = () => {
 
             {/* Custom Animation Styles */}
             <style jsx>{`
-                @keyframes float-up {
+                /* Keyframe animations for different screen sizes */
+                @keyframes float-up-mobile {
                     0% {
                         transform: translateY(0) rotate(0deg);
                         opacity: 0;
                     }
                     10% {
-                        opacity: 0.4;
+                        opacity: 0.35;
                     }
                     90% {
-                        opacity: 0.4;
+                        opacity: 0.35;
                     }
                     100% {
                         transform: translateY(-100vh) rotate(360deg);
@@ -87,38 +88,56 @@ const Hero = () => {
                     }
                 }
 
-                .animate-float-up {
-                    animation: float-up 30s linear infinite;
-                }
-
-                /* Responsive animation adjustments */
-                @media (max-width: 640px) {
-                    .animate-float-up {
-                        animation-duration: 35s; /* Slower on mobile for less distraction */
+                @keyframes float-up-tablet {
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 0;
                     }
-                    @keyframes float-up {
-                        10%, 90% {
-                            opacity: 0.3;
-                        }
+                    10% {
+                        opacity: 0.45;
                     }
-                }
-
-                @media (min-width: 641px) and (max-width: 768px) {
-                    .animate-float-up {
-                        animation-duration: 32s;
+                    90% {
+                        opacity: 0.45;
                     }
-                    @keyframes float-up {
-                        10%, 90% {
-                            opacity: 0.4;
-                        }
+                    100% {
+                        transform: translateY(-100vh) rotate(360deg);
+                        opacity: 0;
                     }
                 }
 
-                @media (min-width: 769px) {
-                    @keyframes float-up {
-                        10%, 90% {
-                            opacity: 0.6;
-                        }
+                @keyframes float-up-desktop {
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 0;
+                    }
+                    10% {
+                        opacity: 0.6;
+                    }
+                    90% {
+                        opacity: 0.6;
+                    }
+                    100% {
+                        transform: translateY(-100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+
+                /* Apply animations based on screen size */
+                .crypto-float-animation {
+                    animation-name: float-up-mobile;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+                }
+
+                @media (min-width: 641px) and (max-width: 1024px) {
+                    .crypto-float-animation {
+                        animation-name: float-up-tablet;
+                    }
+                }
+
+                @media (min-width: 1025px) {
+                    .crypto-float-animation {
+                        animation-name: float-up-desktop;
                     }
                 }
             `}</style>

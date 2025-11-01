@@ -4,8 +4,8 @@ import React from 'react';
 
 const ToggleButtons = ({ activeTab, onToggle }) => {
   return (
-    <div className="flex justify-center px-4">
-      <div className="inline-flex bg-white rounded-full shadow-md border-2 border-[#018000]  transition-all duration-300 hover:shadow-lg">
+    <div className="flex justify-center px-4 py-6">
+      <div className="inline-flex bg-white rounded-full shadow-md border-2 border-[#018000]  transition-all duration-300 hover:shadow-lg ">
         <button
           onClick={() => onToggle('Personal')}
           className={`px-6 sm:px-8 md:px-10 py-2 sm:py-2.5 rounded-full font-medium text-[14px] sm:text-[16px] transition-all duration-300 ease-in-out ${
