@@ -2,10 +2,19 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const router = useRouter();
+
+    const handleLogin = () => {
+        router.push('/signin');
+    };
+    const handleLogin2 = () => {
+        router.push('/signup');
+    };
 
     return (
         <header className="fixed top-0 left-0 right-0 bg-[#F0F7EB] z-50 py-2 px-2 sm:px-4">
@@ -41,10 +50,14 @@ const Header = () => {
 
                 {/* Desktop Buttons */}
                 <div className="hidden lg:flex items-center space-x-3">
-                    <button className="px-6 xl:px-10 py-2 border-2 border-[#018000] text-[#018000] rounded-full hover:bg-green-50 transition-all duration-300 text-[16px] xl:text-[18px] font-semibold">
+                    <button 
+                        onClick={handleLogin}
+                        className="px-6 xl:px-10 py-2 border-2 border-[#018000] text-[#018000] rounded-full hover:bg-green-50 transition-all duration-300 text-[16px] xl:text-[18px] font-semibold hover:scale-105 active:scale-95"
+                    >
                         Login
                     </button>
-                    <button className="px-6 xl:px-10 py-2 bg-[#018000] text-white rounded-full hover:bg-[#016500] transition-all duration-300 text-[16px] xl:text-[18px] font-semibold shadow-md hover:shadow-lg">
+                    <button onClick={handleLogin2} className="px-6 xl:px-10 py-2 bg-[#018000] text-white rounded-full hover:bg-[#016500] transition-all duration-300 text-[16px] xl:text-[18px] font-semibold shadow-md hover:shadow-lg hover:scale-105 active:scale-95">
+                        
                         Sign Up
                     </button>
                 </div>
@@ -77,10 +90,13 @@ const Header = () => {
                         Developer
                     </a>
                     <div className="flex flex-col space-y-3 pt-4">
-                        <button className="w-full py-3 border-2 border-[#018000] text-[#018000] rounded-full hover:bg-green-50 transition-all duration-300 text-[16px] font-semibold">
+                        <button 
+                            onClick={handleLogin}
+                            className="w-full py-3 border-2 border-[#018000] text-[#018000] rounded-full hover:bg-green-50 transition-all duration-300 text-[16px] font-semibold active:scale-95"
+                        >
                             Login
                         </button>
-                        <button className="w-full py-3 bg-[#018000] text-white rounded-full hover:bg-[#016500] transition-all duration-300 text-[16px] font-semibold shadow-md">
+                        <button className="w-full py-3 bg-[#018000] text-white rounded-full hover:bg-[#016500] transition-all duration-300 text-[16px] font-semibold shadow-md active:scale-95">
                             Sign Up
                         </button>
                     </div>
